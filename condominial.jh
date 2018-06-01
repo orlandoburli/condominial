@@ -1,0 +1,38 @@
+entity Pessoa {
+	nome String
+    cpf String
+    rg String
+    celular1 String
+    celular2 String
+    fone1 String
+    fone2 String
+}
+
+entity Unidade {
+	nome String
+    andar Integer
+}
+
+entity Morador {
+    dataMudanca Date
+}
+
+entity Visitante {
+    tipo TipoVisitante
+}
+
+enum TipoVisitante {
+	PRESTADOR, CONVIDADO
+}
+
+relationship ManyToOne {
+  Morador to Unidade
+}
+
+relationship ManyToOne {
+	Morador to Pessoa
+}
+
+relationship ManyToOne {
+	Visitante to Pessoa
+}
